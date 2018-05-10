@@ -20,5 +20,7 @@ exports.createToken = function (usuario) {
         exp: moment().add(10, 'hours').unix(),
     };
     return jwt.encode(payload,claveSecreta);
-
 }
+
+exports.createToken = process.env
+
