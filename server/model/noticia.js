@@ -6,22 +6,38 @@ const Schema = mongoose.Schema;
 const noticiasSchema = new Schema({
     titulo: {
         type: String,
-        required: true
+        require: true
     },
-    fecha:{
-        type:Date,
-        required: true
+    fecha: {
+        type: date,
+        require: true
     },
-    cuerpo:{
+    cuerpo: {
         type: String,
-        required: true
+        require: true
     },
-    usuario:{
-        type: mongoose.Schema.Types.ObjectId,
-        required:true
+    autor: {
+        type: String,
+        require: true
+    },
+    foto: {
+        type: String,
+        require: true
+    },
+    categoria: {
+        type: String,
+        require: true
+    },
+    tag: {
+        type: String,
+        require: true
+    },
+
+    usuario: {
+        type: mongoose.schema.types.objectId,
+        require: true
     },
     comentarios: [{
-        type:String,
+        type: String,
     }]
-    
 });
