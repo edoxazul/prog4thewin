@@ -32,10 +32,17 @@ app.use(bodyParser.json());
 
 //cargar rutas
 
+const usuario_routes = require('./server/routes/usuario');
+const noticia_routes = require('./server/routes/noticia');
+
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //Ruta Base
+
+app.use('/api/usuario',usuario_routes);
+app.use('/api/noticia',noticia_routes);
+
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
