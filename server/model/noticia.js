@@ -1,11 +1,17 @@
+/**
+ *
+ */
+
+
 'use strict';
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const noticiasSchema = new Schema({
+const noticiaSchema = new Schema({
     titulo: {
         type: String,
+        required: true,
 
     },
     fecha: {
@@ -38,4 +44,4 @@ const noticiasSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('noticia',noticiasSchema);
+module.exports = mongoose.model('noticia',noticiaSchema);
