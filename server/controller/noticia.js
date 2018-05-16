@@ -14,7 +14,6 @@ function crearNoticia(req,res) {
     noticia.fecha = params.fecha;
     noticia.cuerpo = params.cuerpo;
     noticia.autor = params.autor;
-    noticia.foto = params.foto;
     noticia.categoria = params.categoria;
     noticia.tag = params.tag;
 
