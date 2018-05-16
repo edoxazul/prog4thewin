@@ -21,9 +21,11 @@ const noticiaSchema = new Schema({
     cuerpo: {
         type: String,
         require: true
+
     },
+
     autor: {
-        type: mongoose.Schema.Types.objectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'usuario',
         require: true
     },
@@ -31,6 +33,7 @@ const noticiaSchema = new Schema({
         type: String,
 
     },
+
     categoria: {
         type: String,
         require: true
