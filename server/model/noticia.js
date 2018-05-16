@@ -6,10 +6,10 @@ const Schema = mongoose.Schema;
 const noticiasSchema = new Schema({
     titulo: {
         type: String,
-        require: true
+
     },
     fecha: {
-        type: date,
+        type: Number,
         require: true
     },
     cuerpo: {
@@ -17,12 +17,13 @@ const noticiasSchema = new Schema({
         require: true
     },
     autor: {
-        type: String,
+        type: mongoose.Schema.Types.objectId,
+        ref: 'usuario',
         require: true
     },
     foto: {
         type: String,
-        require: true
+
     },
     categoria: {
         type: String,
@@ -32,12 +33,9 @@ const noticiasSchema = new Schema({
         type: String,
         require: true
     },
-
-    usuario: {
-        type: mongoose.schema.types.objectId,
-        require: true
-    },
     comentarios: [{
         type: String,
     }]
 });
+
+module.exports = mongoose.model('noticia',noticiasSchema);
