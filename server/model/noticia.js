@@ -1,27 +1,50 @@
+/**
+ *
+ */
+
+
 'use strict';
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const noticiasSchema = new Schema({
+const noticiaSchema = new Schema({
     titulo: {
         type: String,
-        required: true
+        required: true,
+
     },
-    fecha:{
-        type:Date,
-        required: true
+    fecha: {
+        type: Number,
+        require: true
     },
-    cuerpo:{
+    cuerpo: {
         type: String,
-        required: true
+        require: true
+
     },
-    usuario:{
+
+    autor: {
         type: mongoose.Schema.Types.ObjectId,
-        required:true
+        ref: 'usuario',
+        require: true
+    },
+    foto: {
+        type: String,
+
+    },
+
+    categoria: {
+        type: String,
+        require: true
+    },
+    tag: {
+        type: String,
+        require: true
     },
     comentarios: [{
-        type:String,
+        type: String,
     }]
-    
 });
+
+module.exports = mongoose.model('noticia',noticiaSchema);
