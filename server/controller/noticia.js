@@ -35,11 +35,8 @@ function crearNoticia(req,res) {
         }
     })
 }
-
 function getNoticia(req,res){
-
     const idNoticia=req.params.id;
-
     Noticia.findOne({_id:idNoticia},(err,noticia_encontrada)=>{
 
         if(err){
@@ -61,11 +58,8 @@ function getNoticia(req,res){
 }
 
 function modificarNoticia(req,res){
-
     const idNoticia=req.params.id;
-
     Noticia.findOne({_id:idNoticia},(err,noticia_modificada)=>{
-
         if(err){
             res.status(500).send({
                 desc: 'Error en el servidor',
@@ -78,7 +72,6 @@ function modificarNoticia(req,res){
                     err: err.message
                 })
             }else{
-
                 noticia_modificada.titulo = params.titulo;
                 noticia_modificada.fecha = params.fecha;
                 noticia_modificada.cuerpo = params.cuerpo;
@@ -106,11 +99,33 @@ function modificarNoticia(req,res){
         }
     })
 }
+function deleteNoticia(req,res){
 
+    const idNoticia=req.params.id;
+
+    Noticia.findOneAndRemove({_id:idNoticia},(err,noticia_encontrada)=>{
+
+        if(err){
+            res.status(500).send({
+                desc: 'Error en el servidor',
+                err: err.message
+            })
+        }else{
+            if(!noticia_encontrada) {
+                res.status(404).send({
+                    desc: 'Noticia no encontrada',
+                    err: err.message
+                })
+            }else{
+            res.status(200).send(noticia_encontrada);
+        }
+        }
+    })
+}
 module.exports = {
     crearNoticia,
+    deleteNoticia,
     getNoticia,
     modificarNoticia,
 
 };
-

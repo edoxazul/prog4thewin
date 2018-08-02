@@ -6,7 +6,7 @@
 
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const  claveSecreta = process.env.clave | 'CLAVE';
+const  claveSecreta = process.env.clave || 'CLAVE';
 
 exports.createToken = function (usuario) {
     const payload={
@@ -20,7 +20,4 @@ exports.createToken = function (usuario) {
         exp: moment().add(10, 'hours').unix(),
     };
     return jwt.encode(payload,claveSecreta);
-}
-
-exports.createToken = process.env
-
+};

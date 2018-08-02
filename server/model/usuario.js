@@ -14,11 +14,13 @@ const usuarioSchema = new Schema({
     },
     rut:{
         type:String,
-        required: true
+        required: true,
+        unique: true
     },
     correo:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     direccion:{
         type: String,
@@ -27,6 +29,7 @@ const usuarioSchema = new Schema({
     clave:{
         type: String,
         required: true
+
     },
     avatar:{
         type: String,
