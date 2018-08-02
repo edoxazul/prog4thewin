@@ -1,0 +1,53 @@
+<div class="wrapper" >
+  <div class="page-header page-header-xs bg-transparent" data-parallax="true" style="background-image: url('../assets/img/antoine-barres.jpg');">
+    <div class="filter">
+        <h1 style="color: white; font-weight: bold">
+            Noticias
+        </h1>
+    </div>
+  </div>
+    <div class="filter col-12 text-center section">
+        <h1 style="color: black; font-weight: bold">
+            {{titulo}}
+        </h1>
+    </div>
+    <input type="hidden" value="{{autor}}" #inputAutor>
+    <input type="hidden" value="{{descripcion}}" #inputDescripcion>
+    <input type="hidden" value="{{fecha}}" #inputFecha>
+    <input type="hidden" value="{{titulo}}" #inputTitulo>
+    <input type="hidden" value="{{url}}" #inputUrl>
+    <input type="hidden" value="{{imagenURL}}" #inputImgUrl>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner section">
+                <img src="{{imagenURL}}" style="max-width:80%;max-height:80%;" class="img-rounded img-responsive">
+                <div class="name section col-12">
+                    <h2 class="title">{{autor}}<br /></h2>
+                    <h5 class="description text-center">{{fecha}}</h5>
+                </div>
+                <div class="container text-center">
+                    <div class="tim-title">
+                        <h2>{{descripcion}}</h2>
+                    </div>
+                    <br>
+                    <div class="col-xs-2 col-center-block">
+                        <a href="{{url}}" target="_blank">
+                        <button type="button" class="btn btn-outline-primary btn-round btn-lg">Ver Más</button>
+                        </a>
+                        <button type="button" class="btn btn-outline-primary btn-round btn-lg" (click)="agregarFavorito(inputAutor.value, inputDescripcion.value, inputFecha.value, inputTitulo.value, inputUrl.value, inputImgUrl.value)">Agregar a favoritos</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="getSucces()">
+                <ngb-alert [type]="'success'"  [dismissible]="false">
+                    <div class="container">
+                        Agregado a favoritos
+                        <button type="button" name="button" class="close" (click)="closeAlert()">
+                            <i class="nc-icon nc-simple-remove"></i>
+                        </button>
+                    </div>
+                </ngb-alert>
+            </div>
+        </div>
+    </div>
+</div>

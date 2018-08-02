@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                        <div class="card card-register">
+                            <h3 class="title">Wena man, como estamos, tanto tiempo</h3>
+                            <form class="register-form">
+                                <label>Email/Rut</label>
+                                <input type="text" class="form-control" placeholder="RUT o Email" #inputEmailRut>
+
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password" #inputPass>
+                                <button class="btn btn-danger btn-block btn-round" (click)="login(inputEmailRut.value, inputPass.value)">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer register-footer text-center">
+                    <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Alpa018</h6>
+                </div>
+            </div>
+    </div>
+</div>

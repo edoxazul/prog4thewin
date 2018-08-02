@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs bg-transparent" data-parallax="true" style="background-image: url('../assets/img/antoine-barres.jpg');">
+        <div class="filter">
+            <div >
+                <h1 style="color: white; font-weight: bold">
+                    Noticias
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="card content-center section">
+            <ul class="list-group">
+                <li *ngFor="let noticia of noticias.articles" class="list-group-item">
+                    <div class="row">
+                            <div class="col-md-3 col-sm-3 ml-auto mr-auto">
+                                <a [routerLink]="['/noticiasdetalle', noticia.author, noticia.description, noticia.publishedAt, noticia.title, noticia.url, noticia.urlToImage]">
+                                    <img style="max-width:100%;max-height:100%;" class="img-rounded img-responsive" src="{{noticia.urlToImage}}" />
+                                    <br>
+                                    <h5 align="center">{{noticia.author}}</h5>
+                                </a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 ml-auto">
+                                <br>
+                                <a [routerLink]="['/noticiasdetalle', noticia.author, noticia.description, noticia.publishedAt, noticia.title, noticia.url, noticia.urlToImage]">
+                                    <h6>{{noticia.title}}<br /><small>{{noticia.description}}</small></h6>
+                                </a>
+                            </div>
+                            <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                                <label class="form-check-label">
+                                    <small>{{noticia.publishedAt}}</small>
+                                </label>
+                            </div>
+                    </div>
+                </li>
+            </ul>
+    </div>
+</div>

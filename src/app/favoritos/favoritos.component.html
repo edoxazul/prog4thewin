@@ -1,0 +1,50 @@
+<div class="wrapper">
+  <div class="page-header page-header-xs bg-transparent" data-parallax="true" style="background-image: url('../assets/img/antoine-barres.jpg');">
+    <div class="filter">
+      <div >
+        <h1 style="color: white; font-weight: bold">
+          Favoritos
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="card content-center section">
+    <ul class="list-group">
+      <li *ngFor="let noticia of noticias" class="list-group-item">
+        <div class="row">
+          <div class="col-md-3 col-sm-3 ml-auto mr-auto">
+            <a [routerLink]="['/noticiasdetalle', noticia.autor, noticia.descripcion, noticia.fecha, noticia.titulo, noticia.url, noticia.imagenUrl]">
+              <img style="max-width:100%;max-height:100%;" class="img-rounded img-responsive" src="{{noticia.imagenUrl}}" />
+              <br>
+              <h5 align="center">{{noticia.autor}}</h5>
+            </a>
+          </div>
+          <div class="col-md-6 col-sm-6 ml-auto">
+            <br>
+            <a [routerLink]="['/noticiasdetalle', noticia.autor, noticia.descripcion, noticia.fecha, noticia.titulo, noticia.url, noticia.imagenUrl]">
+              <h6>{{noticia.titulo}}<br /><small>{{noticia.descripcion}}</small></h6>
+            </a>
+          </div>
+          <div class="col-md-2 col-sm-2 ml-auto mr-auto text-center">
+            <label class="form-check-label">
+              <small>{{noticia.fecha}}</small>
+            </label>
+            <br>
+            <br>
+            <div class="section">
+              <br>
+              <br>
+              <input type="hidden" value="{{noticia.titulo}}" #inputTitulo>
+              <button type="button" class="btn btn-outline-primary btn-round btn-lg" (click)="deleteNoticia(inputTitulo.value)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <div *ngIf="noticias.length == 0 || noticias == null">
+        <h1 class="text-center">
+          UPS!! No hay noticias favoritas
+        </h1>
+      </div>
+    </ul>
+  </div>
+</div>
