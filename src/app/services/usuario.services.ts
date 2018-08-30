@@ -32,6 +32,15 @@ export class UsuarioService {
     map(res => res.json());
   }
 
+  getAllNoticias (){
+      const headers = new Headers ( { 'Content-Type':
+              'application/json'});
+      headers.append('autorization', this.getToken());
+      return this._http.get (this.url + '/noticia/getAllNoticias',
+          {headers: headers}).
+          map(res => res.json());
+  }
+
   getIdentity() {
       const identity = JSON.parse(localStorage.getItem('identity'));
       if (identity !== 'undefined') {
